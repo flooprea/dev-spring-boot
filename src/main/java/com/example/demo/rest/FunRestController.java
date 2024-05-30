@@ -1,6 +1,7 @@
 package com.example.demo.rest;
 
 import com.example.demo.model.Coach;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,7 +11,7 @@ public class FunRestController {
     private Coach myCoach;
 
 
-    public FunRestController(Coach myCoach) {
+    public FunRestController(@Qualifier("tennisCoach") Coach myCoach) {
         this.myCoach = myCoach;
     }
 
@@ -21,7 +22,7 @@ public class FunRestController {
 
     @GetMapping(path = "/fortune")
     private String returnFortune() {
-        return "tomorrow is your lucky day";
+        return "today is your lucky day";
     }
 
 }
