@@ -3,7 +3,10 @@ package com.example.demo.model;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CricketCoachImpl implements Coach {
+public class CricketCoach implements Coach {
+    public CricketCoach() {
+        System.out.println("In constructor: " + getClass().getSimpleName());
+    }
 
     @Override
     public String getDailyWorkout() {
