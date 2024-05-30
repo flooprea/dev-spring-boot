@@ -11,7 +11,7 @@ public class FunRestController {
     private Coach myCoach;
 
 
-    public FunRestController(@Qualifier("tennisCoach") Coach myCoach) {
+    public FunRestController(@Qualifier("cricketCoachImpl") Coach myCoach) {
         this.myCoach = myCoach;
     }
 
