@@ -13,20 +13,13 @@ public class FunRestController {
     private Coach anotherCoach;
 
     @Autowired
-    public FunRestController(@Qualifier("cricketCoach") Coach theCoach,
-                             @Qualifier("cricketCoach") Coach theAnotherCoach) {
-        myCoach = myCoach;
-        anotherCoach = anotherCoach;
+    public FunRestController(@Qualifier("cricketCoach") Coach myCoach) {
+        this.myCoach = myCoach;
     }
 
     @GetMapping(path = "/dailyworkout")
     private String secondFunction() {
         return myCoach.getDailyWorkout();
-    }
-
-    @GetMapping("/check")
-    public String check() {
-        return "Comparing beans " + (myCoach == anotherCoach);
     }
 
     @GetMapping(path = "/fortune")
