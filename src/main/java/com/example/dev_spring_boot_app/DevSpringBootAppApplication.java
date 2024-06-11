@@ -17,8 +17,14 @@ public class DevSpringBootAppApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			createStudent(studentDAO);
+			//createStudent(studentDAO);
+			System.out.println(findStudentById(studentDAO));
  		};
+	}
+
+	private Student findStudentById(StudentDAO studentDAO) {
+		Student myStudent =  studentDAO.findById(3);
+		return myStudent;
 	}
 
 	private void createStudent(StudentDAO studentDAO) {
