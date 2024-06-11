@@ -7,6 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
+import java.util.List;
+
 @SpringBootApplication
 public class DevSpringBootAppApplication {
 
@@ -17,9 +20,13 @@ public class DevSpringBootAppApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			//createStudent(studentDAO);
-			System.out.println(findStudentById(studentDAO));
- 		};
+			System.out.println(Arrays.toString(findAllStudents(studentDAO).toArray()));
+			findAllStudents(studentDAO).forEach(System.out::println);
+		};
+	}
+
+	private List<Student> findAllStudents(StudentDAO studentDao) {
+		return studentDao.findAll();
 	}
 
 	private Student findStudentById(StudentDAO studentDAO) {
