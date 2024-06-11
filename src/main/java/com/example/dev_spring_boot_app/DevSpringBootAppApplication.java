@@ -18,7 +18,7 @@ public class DevSpringBootAppApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
 			createStudent(studentDAO);
-		};
+ 		};
 	}
 
 	private void createStudent(StudentDAO studentDAO) {
