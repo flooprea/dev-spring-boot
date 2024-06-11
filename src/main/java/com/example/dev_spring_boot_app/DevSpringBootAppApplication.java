@@ -19,9 +19,14 @@ public class DevSpringBootAppApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
 		return runner -> {
-			findAllByLastName(studentDAO, "Doe").forEach(System.out::println);
+			createStudent(studentDAO);
+			findByLastNameOrEmail(studentDAO, "Doe", "dev@mail.com").forEach(System.out::println);
 		};
 
+	}
+
+	private List<Student> findByLastNameOrEmail(StudentDAO studentDAO, String lastName, String email) {
+		return studentDAO.findByLastNameOrEmail(lastName, email);
 	}
 
 	private List<Student> findAllByLastName(StudentDAO studentDao, String lastName) {
@@ -38,7 +43,7 @@ public class DevSpringBootAppApplication {
 
 	private void createStudent(StudentDAO studentDAO) {
 
-		Student student = new Student("John", "Doe", "dev@mail.com");
+		Student student = new Student("Tim", "Doe", "somemail@mail.com");
 
 		studentDAO.save(student);
 
