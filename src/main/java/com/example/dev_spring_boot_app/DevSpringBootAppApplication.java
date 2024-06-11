@@ -23,7 +23,7 @@ public class DevSpringBootAppApplication {
 
 	private void createStudent(StudentDAO studentDAO) {
 
-		Student student = new Student("Steve", "Stevenson", "setevenson@mail.com");
+		Student student = new Student("Devin", "TheDude", "dev@mail.com");
 
 		studentDAO.save(student);
 
